@@ -1,0 +1,136 @@
+/* 基本颜色 */
+@bgc: #e6e6e6;
+@color: #333;
+@linkColor: @color;
+@linkHover: #136EC3;
+@hlColor: @linkHover; //高亮色
+
+
+.shadow-bg(){
+    background: url(/static/page/bg_shadow.png) left bottom repeat-x;
+    //background: linear-gradient(transparent,#000 90%);
+    *background: #000;
+    *filter: alpha(opacity=70);
+}
+.video-view-box(){
+    .view-box{
+        display: block; 
+        height: 151px;
+        cursor: pointer;
+
+        .title{
+            font: 12px/18px "Microsoft Yahei";
+            color: #4f4f4f;
+            text-align: left;
+            display: block;
+            word-break: break-all;
+            padding-top: 10px;
+            height: 36px;
+        }
+
+        .view{
+            display: block; 
+            position: relative; 
+            width: 100%;
+            height: 105px;
+            overflow: hidden;
+
+            img{
+                height:105px;
+                width: 100%;
+            }
+            .info-bg{
+                display: block;
+                width: 100%; 
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 50px;
+                line-height: 18px;
+                *height: 25px;
+                *line-height: 25px;
+                .shadow-bg();
+            }
+            .info{
+                position: absolute;
+                bottom: 0;
+                color: #FFF;
+                right: 6px;
+                font-size: 12px;
+            }
+            .site{
+                position: absolute;
+                bottom: 1px;
+                color: #FFF;
+                left: 6px;
+            }
+            .s-mask{
+                visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                .fis-opacity(0);
+            }
+            .s-play{
+                visibility: hidden;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 42px;
+                height: 42px;
+                margin: -21px 0 0 -21px;
+                background: url("/static/page/play.png") 1px 1px no-repeat;
+                _background:none;
+                _background-image:none;
+                _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://vs3.bdstatic.com/pc_static/icons/play.png');
+
+            }
+        }
+        &:hover {
+            zoom: 1;
+            .view{
+                .s-mask,.s-play{visibility: visible;}
+            }
+
+            .title{
+                color: @linkHover;
+            }
+        }
+    }
+}
+/*---------------自适应 mixin----------------*/
+.sub-item(){
+  .sub-item{
+    display: none !important;
+  }
+}
+.dimension-small{
+  .sub-item();
+}
+.dimension-normal{
+}
+.dimension-wide{
+}
+.property-factory(@property,@value) when not (@value = false){
+  @{property}:@value;
+};
+.dimension-factory(@class,@css,@sw:false,@nw:false,@ww:false){
+  .dimension-small{
+    @{class}{
+      .property-factory(@css,@sw);
+    }
+  }
+  .dimension-normal{
+    @{class}{
+      .property-factory(@css,@nw);
+    }
+  };
+  .dimension-wide{
+    @{class}{
+      .property-factory(@css,@ww);
+    }
+  };
+}

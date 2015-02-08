@@ -1,0 +1,11 @@
+{
+  "name": "widget-store",
+  "version": "1.0.0",
+  "main": "",
+  "ignore": [
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

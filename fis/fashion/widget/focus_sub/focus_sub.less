@@ -1,0 +1,47 @@
+@import "static/page/mixin.less";
+.focus-wrap{
+  position:relative;
+  .fis-clearfix();
+  .video-view-box();
+  position:relative;
+  .poster{
+    height: 353px;
+    float: left;
+    width: 825px;
+    .view{
+      height: 353px;
+      img{height:100%;}
+      .site{
+        font-size: 18px;
+        line-height: 2.5;
+        color:#dbdbdb;
+      }
+      .s-play{
+        display:none;
+      }
+	  .info-bg{
+		*height:50px;
+	  }
+    }
+  }
+  .img-list-wrap{
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:10;
+    width: 390px;
+    padding: 19px 0 0 20px;
+    background:#25262d;
+    li{
+      width: 176px;
+      margin: 0 20px 0 0;
+      .view-box {
+        height: 167px;
+        .view{
+          height:106px;
+        }
+        .title{color:#bababb;}
+      }
+    }
+  }
+}

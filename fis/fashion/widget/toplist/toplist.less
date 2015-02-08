@@ -1,0 +1,146 @@
+@import "static/page/mixin.less";
+.top-list-wrap{
+  .fis-clearfix();
+  .top-list{
+    li{
+      margin: 3px 0;
+    }
+    a{
+      display: block;
+      position: relative;
+      font-size: 12px;
+      height: 24px;
+      line-height: 24px;
+      cursor: pointer;
+      .ie6-trick{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        visibility: hidden;
+        background: #000;
+        .fis-opacity(0);
+      }
+      &:hover .ie6-trick{
+        visibility: visible;
+      }
+
+      &:hover{
+        .play{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 41px;
+          height: 41px;
+          margin: -20px 0 0 -20px;
+          background: url(./play-btn-small.png?__sprite) no-repeat 0 0;
+          _background-image: none;
+          _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://vs3.bdstatic.com/detail/play-btn-small.png', sizingMethod='crop');
+        }
+      }
+    }
+
+    .active{
+      .video-view-box();
+      margin: 0 0 10px;
+      .view-box{
+        height: 115px;
+        .view img{
+          height:100%;
+        }
+        .top-cover{
+          display: block;
+          height:100%;
+        }
+      }
+
+
+      .top-info{
+        color: #fff;
+
+        span{
+          background-color: #fff;
+          background-color: #fc7546;
+          color: #fff;
+          text-align: center;
+          top:0;
+          line-height: 24px;
+          &.top3{
+            color: #fff;
+          }
+        }
+      }
+    }
+
+
+    .top-cover{
+      width: 100%;
+      height: 115px;
+      overflow: hidden;
+      position: relative;
+      display: none;
+
+      img{
+        width: 100%;
+      }
+
+      .mask{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+        background: url(./mask.png?__sprite) repeat-x 0 0;
+        z-index: 1;
+        _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://vs3.bdstatic.com/pc_static/icons/mask.png');
+        width: 100%;
+        _background-image: none!important;
+      }
+    }
+
+    .top-info{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      height: 24px;
+      line-height: 24px;
+      z-index: 2;
+
+      span{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-style: italic;
+
+        &.top3{
+          color: #fc7546;
+        }
+      }
+
+      b{
+        position: absolute;
+        top:7px;
+        right: 2px;
+        color: #999;
+        height: 10px;
+        width: 45px;
+        font-size: 11px;
+        line-height: 1;
+        padding-left: 10px;
+        font-family: "宋体";
+        background: url(./play.png?__sprite) no-repeat 0 0;
+        text-align: right;
+        font-weight: normal;
+      }
+
+      p{
+        padding-left: 30px;
+      }
+    }
+  }
+}
